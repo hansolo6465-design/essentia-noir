@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essentia Noir - Luxury Perfume</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@r128/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <svg class="logo" viewBox="0 0 100 100" width="50" height="50">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#f4e4c1;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Bottle shape -->
+                    <path d="M 35 20 L 35 10 L 45 10 L 45 20 Q 50 25 50 35 L 50 70 Q 50 80 40 85 L 60 85 Q 70 80 70 70 L 70 35 Q 70 25 65 20 L 65 15 L 75 15 L 75 20 Q 75 30 70 40 L 70 75 Q 70 85 55 90 L 45 90 Q 30 85 30 75 L 30 40 Q 25 30 25 20 Z" fill="url(#logoGradient)" stroke="#d4af37" stroke-width="1"/>
+                    <!-- Sparkle effects -->
+                    <circle cx="40" cy="35" r="2" fill="#ffffff" opacity="0.8"/>
+                    <circle cx="60" cy="50" r="1.5" fill="#ffffff" opacity="0.6"/>
+                </svg>
+                <span class="brand-name">ESSENTIA NOIR</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#collection">Collection</a></li>
+                <li><a href="#features">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-cta">
+                <button class="shop-btn">Shop Now</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with 3D -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="word">Essence</span>
+                    <span class="word">Of</span>
+                    <span class="word">Elegance</span>
+                </h1>
+                <p class="hero-subtitle">Discover the art of luxury fragrance</p>
+                <button class="cta-primary">Explore Collection</button>
+            </div>
+            <div class="hero-3d-container" id="three-container"></div>
+        </div>
+    </section>
+
+    <!-- Featured Product Section -->
+    <section id="collection" class="featured-section">
+        <div class="section-header">
+            <h2>Featured Collections</h2>
+            <p>Handcrafted Masterpieces</p>
+        </div>
+        
+        <div class="products-grid">
+            <!-- Product Card 1 -->
+            <div class="product-card" data-product="1">
+                <div class="product-image">
+                    <div class="bottle-3d" id="bottle-1"></div>
+                </div>
+                <div class="product-info">
+                    <h3>Midnight Essence</h3>
+                    <p class="fragrance-notes">Oud, Amber, Musk</p>
+                    <p class="product-description">A bold and mysterious fragrance that captures the essence of midnight</p>
+                    <div class="price-tag">$189</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="product-card" data-product="2">
+                <div class="product-image">
+                    <div class="bottle-3d" id="bottle-2"></div>
+                </div>
+                <div class="product-info">
+                    <h3>Golden Hour</h3>
+                    <p class="fragrance-notes">Saffron, Rose, Sandalwood</p>
+                    <p class="product-description">Warm and inviting, perfect for those magical sunset moments</p>
+                    <div class="price-tag">$175</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="product-card" data-product="3">
+                <div class="product-image">
+                    <div class="bottle-3d" id="bottle-3"></div>
+                </div>
+                <div class="product-info">
+                    <h3>Velvet Dreams</h3>
+                    <p class="fragrance-notes">Violet, Orchid, Vanilla</p>
+                    <p class="product-description">Soft, sensual, and utterly captivating in every way</p>
+                    <div class="price-tag">$165</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="features" class="experience-section">
+        <div class="experience-header">
+            <h2>The Essentia Experience</h2>
+            <p>Crafted to Perfection</p>
+        </div>
+
+        <div class="features-container">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M 50 30 L 60 50 L 50 70 L 40 50 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h3>Premium Ingredients</h3>
+                <p>Sourced from the finest regions around the world, each ingredient is carefully selected</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="M 50 20 L 70 80 L 30 80 Z" fill="currentColor" opacity="0.5"/>
+                    </svg>
+                </div>
+                <h3>Artisan Crafted</h3>
+                <p>Master perfumers blend each fragrance with precision and passion</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 100 100">
+                        <rect x="30" y="30" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" rx="5"/>
+                        <line x1="50" y1="35" x2="50" y2="65" stroke="currentColor" stroke-width="2"/>
+                        <line x1="35" y1="50" x2="65" y2="50" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h3>Long Lasting</h3>
+                <p>Up to 12 hours of captivating fragrance that lingers beautifully</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="15" fill="currentColor" opacity="0.3"/>
+                    </svg>
+                </div>
+                <h3>Eco-Friendly</h3>
+                <p>Sustainable packaging and ethical sourcing practices</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="section-header">
+            <h2>Loved by Fragrance Enthusiasts</h2>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Essentia Noir has completely transformed how I experience fragrance. Absolutely breathtaking!"</p>
+                <p class="testimonial-author">— Sarah Mitchell</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"The quality and sophistication of these fragrances are unmatched. Worth every penny."</p>
+                <p class="testimonial-author">— James Richardson</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Finally found the perfect signature scent. Customer service was exceptional too!"</p>
+                <p class="testimonial-author">— Emma Watson</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="newsletter-content">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to receive exclusive offers and new collection launches</p>
+            <form class="newsletter-form" id="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="subscribe-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <div class="info-item">
+                    <strong>Email:</strong> hello@essentialnoir.com
+                </div>
+                <div class="info-item">
+                    <strong>Phone:</strong> +1 (555) 123-4567
+                </div>
+                <div class="info-item">
+                    <strong>Address:</strong> 123 Luxury Avenue, New York, NY 10001
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-icon">Instagram</a>
+                    <a href="#" class="social-icon">Facebook</a>
+                    <a href="#" class="social-icon">Twitter</a>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Essentia Noir. All rights reserved. | Privacy Policy | Terms of Service</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="three-setup.js"></script>
+    <script src="animations.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
